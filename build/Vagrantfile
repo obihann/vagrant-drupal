@@ -1,0 +1,17 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure(2) do |config|
+  config.vm.box = "obihann/lamp"
+  config.vm.synced_folder "www", "/var/www", create: true
+
+  config.vm.provider :virtualbox do |vb|
+    vb.gui = false
+  end
+
+  config.vm.provision "shell", inline: <<-SHELL
+    wget https://ftp.drupal.org/files/projects/drupal-7.43.tar.gz
+    tar -xzf drupal-7.43.tar.gz
+    rsync -a drupal-7.43/ /var/www/
+  SHELL
+end

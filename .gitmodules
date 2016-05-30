@@ -1,0 +1,6 @@
+[submodule "puppet/modules/mysql"]
+	path = puppet/modules/mysql
+	url = https://bitbucket.org/obihann/puppet-mysql.git
+[submodule "puppet/modules/php"]
+	path = puppet/modules/php
+	url = https://bitbucket.org/obihann/puppet-php.git
